@@ -2,11 +2,11 @@ import { FiFacebook, FiInstagram, FiLinkedin, FiTwitch } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer className="bg-heading-color text-primary-color gap-5">
-      <div>
+    <footer className="bg-heading-color text-primary-color">
+      <div className="flex gap-5 justify-around">
         <div>
           <div>
-            <h3>Adaopte</h3>
+            <h3 className="text-secondary-color">Adaopte</h3>
             <p>
               Notre mission est de trouver des foyers aimants pour <br /> chaque
               animal abandonné et de promouvoir le bien-être <br /> animal.{" "}
@@ -28,14 +28,16 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <h3>Informations Utiles</h3>
-          <a>FAQs</a>
-          <a>Conseils d'adoption</a>
-          <a>Nous Contacter</a>
-          <a>Mentions légales</a>
+          <h3 className="text-secondary-color">Informations Utiles</h3>
+          <div className="">
+            <a>FAQs</a>
+            <a>Conseils d'adoption</a>
+            <a>Nous Contacter</a>
+            <a>Mentions légales</a>
+          </div>
         </div>
         <div>
-          <h3>Contact</h3>
+          <h3 className="text-secondary-color">Contact</h3>
           <p>
             116 Rue du Faubourg Saint-Martin <br /> 75010 Paris, France
           </p>
