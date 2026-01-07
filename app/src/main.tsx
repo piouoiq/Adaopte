@@ -2,17 +2,17 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import Adoption from "./pages/Adoption.tsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { BrowserRouter } from "react-router";
-import { Route, Routes } from "react-router";
+import { Route, Routes, BrowserRouter } from "react-router";
 import Footer from "./components/footer.tsx";
+import Header from "./components/Header.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
+    <Header />
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/Adoption" element={<Adoption />} />
     </Routes>
-    <Footer/>
+    <Footer />
   </BrowserRouter>
 );
