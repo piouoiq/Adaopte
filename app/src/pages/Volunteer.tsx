@@ -5,10 +5,10 @@ export default function Volunteer() {
     <div>
       <section className=" py-20 bg-white">
         <div className="text-container mb-12">
-          <h2 className="text-4xl pb-10 font-family-heading justify-center text-center pb-5font-bold">
+          <h2 className="font-family-heading justify-center text-center pb-5 text-4xl font-bold">
             Pourquoi devenir bénévole ?
           </h2>
-          <p>
+          <p className="text-[#464646] ad-description font-family-body text-center mx-auto max-w-3xl px-4 text-sm leading-relaxed">
             Etre bénévole chez Adaopte, c'est bien plus qu'un coup de main :
             c'est un engagement du coeur, qui change des vies - humaines et
             animales.
