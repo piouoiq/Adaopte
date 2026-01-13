@@ -9,5 +9,5 @@ CREATE TABLE animals (
     created_at DATETIME,
 
     FOREIGN KEY (type_id) REFERENCES types(id),
-    FOREIGN KEY (city_id) REFERENCES cities(id)
+    FOREIGN KEY (city_id) REFERENCES city(id)
 );
