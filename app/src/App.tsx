@@ -1,4 +1,6 @@
 import { NavLink } from "react-router";
+import { Filter } from "./components/Filter";
+import { InfoCard } from "./components/infoCard";
 
 export default function App() {
   return (
@@ -22,6 +24,10 @@ export default function App() {
         </section>
 
         <section>
+          <div className="-translate-y-9">
+            <Filter />
+          </div>
+
           <div className="p-20">
             <h2 className="text-5xl flex justify-center font-family-heading">
               Nos animaux à adopter
@@ -80,7 +86,7 @@ export default function App() {
         <section className="adoption-process-section py-20 bg-white">
           {/* texte */}
           <div className="text-container mb-12">
-            <h2 className="adoption-title font-family-heading justify-center text-center pb-5 text-4xl font-bold">
+            <h2 className="font-family-heading justify-center text-center pb-5 text-4xl font-bold">
               Comment ça marche{" "}
             </h2>
 
@@ -93,62 +99,31 @@ export default function App() {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 max-w-7xl mx-auto">
             {/* 1ere card */}
-            <div className="max-w-sm min-h-96 bg-white rounded-xl shadow-md p-8">
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl mb-10">🔍</div>
-                <h3 className="font-bold text-xl mb-3">
-                  1. Trouvez votre compagnon
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Parcourez notre base de données d'animaux disponibles et
+            <InfoCard
+              icon="🔍"
+              title="1. Trouvez votre compagnon"
+              description="Parcourez notre base de données d'animaux disponibles et
                   utilisez nos filtres pour trouver celui qui correspond à votre
-                  mode de vie.
-                </p>
-              </div>
-            </div>
+                  mode de vie."
+            />
             {/* 2eme card */}
-            <div className="max-w-sm min-h-96 bg-white rounded-xl shadow-md p-8">
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl mb-10">📝</div>
-                <h3 className="font-bold text-xl mb-3">
-                  2. Remplissez une demande
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Soumettez votre formulaire d'adoption pour l'animal qui vous
-                  intéresse. Nous examinons chaque demande avec soin.
-                </p>
-              </div>
-            </div>
-
+            <InfoCard
+              icon="📝"
+              title="2. Remplissez une demande"
+              description="Soumettez votre formulaire d'adoption pour l'animal qui vous intéresse. Nous examinons chaque demande avec soin."
+            />
             {/* 3 eme card */}
-
-            <div className="max-w-sm min-h-96 bg-white rounded-xl shadow-md p-8">
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl mb-10">👋</div>
-                <h3 className="font-bold text-xl mb-3">
-                  3. Rencontrez l'animal
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Visitez le refuge pour rencontrer l'animal et voir si vous
-                  êtes compatibles. C'est un étape essentielle du processus.
-                </p>
-              </div>
-            </div>
-
+            <InfoCard
+              icon="👋"
+              title="3. Rencontrez l'animal"
+              description="Visitez le refuge pour rencontrer l'animal et voir si vous êtes compatibles. C'est un étape essentielle du processus."
+            />
             {/* 4eme card */}
-            <div className="max-w-sm min-h-96 bg-white rounded-xl shadow-md p-8">
-              <div className="flex flex-col items-center text-center">
-                <div className="text-4xl mb-10">🏠</div>
-                <h3 className="font-bold text-xl mb-3">
-                  4. Bienvenue à la maison
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Une fois votre demande approuvée, vous pouvez accueillir votre
-                  nouvel ami chez vous. Nous restons disponibles pour vous
-                  conseiller.
-                </p>
-              </div>
-            </div>
+            <InfoCard
+              icon="🏠"
+              title="4. Bienvenue à la maison"
+              description="Une fois votre demande approuvée, vous pouvez accueillir votre nouvel ami chez vous. Nous restons disponibles pour vous conseiller."
+            />
           </div>
         </section>
 
