@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import { InfoCard } from "../components/infoCard";
+import { TestimonyCard } from "../components/testimonyCard";
+import { testimonies } from "../data/testimonies";
 
 export default function Volunteer() {
   const {
@@ -257,7 +259,30 @@ export default function Volunteer() {
           />
         </div>
       </section>
-
+      <section className=" bg-light-color">
+        <div className="text-container mb-12 pt-12">
+          <h2 className="font-family-heading justify-center text-center pb-5 text-4xl font-bold">
+            Témoignages de bénévoles
+          </h2>
+          <p className="text-[#464646] ad-description font-family-body text-center mx-auto max-w-3xl px-4 text-sm leading-relaxed">
+            Découvrez ce que nos bénévoles partagent de leur expérience chez
+            Adaopte.
+          </p>
+        </div>
+        <div className=" px-4 max-w-7xl mx-auto">
+          <ul>
+            {testimonies.map((key) => (
+              <li key={key.testimony}>
+                <TestimonyCard
+                  picture={key.picture as unknown as HTMLImageElement}
+                  name={key.name}
+                  label={key.label}
+                  testimony={key.testimony}
+                />
+              </li>
+            ))}
+          </ul>
+      </section>
       <section className="cta-section bg-light-color pb-5">
         <h2 className="cta-title font-family-heading justify-center text-center pb-5 pt-5 text-4xl font-bold">
           Des questions ?{" "}
