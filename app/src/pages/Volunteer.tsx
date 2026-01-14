@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import { InfoCard } from "../components/infoCard";
+import { TestimonyCard } from "../components/testimonyCard";
+import { testimonies } from "../data/testimonies";
 
 export default function Volunteer() {
   const {
@@ -255,6 +257,31 @@ export default function Volunteer() {
             title="Donner du sens à votre temps libre"
             description="En vous impliquant chez Adaopte, vous transformez votre temps en veritable acte d'amour, de respect et de solidarité envers les animaux."
           />
+        </div>
+      </section>
+      <section className=" bg-light-color">
+        <div className="text-container mb-12 pt-12">
+          <h2 className="font-family-heading justify-center text-center pb-5 text-4xl font-bold">
+            Témoignages de bénévoles
+          </h2>
+          <p className="text-[#464646] ad-description font-family-body text-center mx-auto max-w-3xl px-4 text-sm leading-relaxed">
+            Découvrez ce que nos bénévoles partagent de leur expérience chez
+            Adaopte.
+          </p>
+        </div>
+        <div className=" px-4 max-w-7xl mx-auto">
+          <ul>
+            {testimonies.map((key) => (
+              <li key={key.testimony}>
+                <TestimonyCard
+                  picture={key.picture as unknown as HTMLImageElement}
+                  name={key.name}
+                  label={key.label}
+                  testimony={key.testimony}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </div>
