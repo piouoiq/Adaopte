@@ -10,13 +10,13 @@ export default function Volunteer() {
 
   return (
     <div>
-      <section className="relative overflow-hidden text-center text-primary-color py-40 ">
-        <div className="relative z-50">
+      <section className="relative overflow-hidden text-center text-primary-color py-40 bg-[#F9F9F9]">
+        <div className="relative z-50 ">
           <h1 className="font-family-heading justify-center text-center pb-5 text-4xl font-bold">
-            Comment ça marche{" "}
+            Devenir Bénévole{" "}
           </h1>
           <p>
-            Offrez votre temps, changez des vies. Chez Adaopte, chaque bénévole
+            Offrez votre temps, changez des viees. Chez Adaopte, chaque bénévole
             contribue à redonner espoir aux animaux en attente d'un foyer.
           </p>
         </div>
@@ -28,134 +28,196 @@ export default function Volunteer() {
 
       {/* Le formulaire d'inscription */}
 
-      <section className="max-w-2xl mx-auto py-16 px-4 pt-0 -mt-12.5 z-100 relative ">
-        <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-200">
-          <h2 className="font-family-heading justify-center text-center pb-5 text-4xl font-bold">
-            Formulaire d'inscription
-          </h2>
-          <p className="text-[#464646] ad-description font-family-body text-center mx-auto max-w-3xl px-4 text-sm leading-relaxed">
-            Remplissez ce formulaire pour rejoindre notre réseau de bénévoles.
-            Nous vous contacterons rapidement pour vous présenter les prochaines
-            étapes.
-          </p>
-          <form
-            onSubmit={handleSubmit((data: any) => {
-              alert(JSON.stringify(data));
-            })}
-            className="space-y-6 mt-6"
-          >
-            {/* Prénom + Nom */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <section className="bg-[#F9F9F9] pt-0 pb-16">
+        <div className="max-w-2xl mx-auto px-4 relative -mt-15">
+          <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-200 relative z-10">
+            <h2 className="font-family-heading justify-center text-center pb-5 text-4xl font-bold">
+              Formulaire d'inscription
+            </h2>
+            <p className="text-[#464646] ad-description font-family-body text-center mx-auto max-w-3xl px-4 text-sm leading-relaxed">
+              Remplissez ce formulaire pour rejoindre notre réseau de bénévoles.
+              Nous vous contacterons rapidement pour vous présenter les
+              prochaines étapes.
+            </p>
+            <form
+              onSubmit={handleSubmit((data: any) => {
+                alert(JSON.stringify(data));
+              })}
+              className="space-y-6 mt-6"
+            >
+              {/* Prénom + Nom */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Prénom
+                    <span className="text-red-600"> *</span>
+                  </label>
+                  <input
+                    {...register("firstName", {
+                      required: "Le prénom est obligatoire",
+                    })}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="firstName"
+                    type="text"
+                    placeholder="Votre prénom"
+                  />
+                  {errors.firstName && (
+                    <p className="text-red-600 text-sm mt-1">
+                      Le prénom est obligatoire
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Nom
+                    <span className="text-red-600"> *</span>
+                  </label>
+                  <input
+                    {...register("lastName", {
+                      required: "Le nom est obligatoire",
+                    })}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="lastName"
+                    type="text"
+                    placeholder="Votre nom"
+                  />
+                  {errors.lastName && (
+                    <p className="text-red-600 text-sm mt-1">
+                      Le nom est obligatoire
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Adresse email  */}
               <div>
                 <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Prénom
+                  Adresse email
                   <span className="text-red-600"> *</span>
                 </label>
                 <input
+                  {...register("adressEmail", {
+                    required: "L'adresse email est obligatoire",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Adresse email invalide",
+                    },
+                  })}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="firstName"
-                  type="text"
-                  placeholder="Votre prénom"
+                  id="adressEmail"
+                  type="email"
+                  placeholder="exemple@gmail.com"
                 />
+                {errors.adressEmail && (
+                  <p className="text-red-600 text-sm mt-1">
+                    Adresse email invalide
+                  </p>
+                )}
               </div>
 
+              {/* Ville et Code postal */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Ville
+                    <span className="text-red-600"> *</span>
+                  </label>
+                  <input
+                    {...register("city", {
+                      required: "La ville est obligatoire",
+                    })}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="city"
+                    type="text"
+                    placeholder="Votre ville"
+                  />
+                  {errors.city && (
+                    <p className="text-red-600 text-sm mt-1">
+                      La ville est obligatoire
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Code postal
+                    <span className="text-red-600"> *</span>
+                  </label>
+                  <input
+                    {...register("postalCode", {
+                      required: "Le code postal est obligatoire",
+                    })}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="postalCode"
+                    type="text"
+                    placeholder="Code postal"
+                  />
+                  {errors.postalCode && (
+                    <p className="text-red-600 text-sm mt-1">
+                      Le code postal est obligatoire
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Disponibilités ) */}
               <div>
                 <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Nom
+                  Disponibilités
                   <span className="text-red-600"> *</span>
                 </label>
-                <input
+                <select
+                  {...register("availability", {
+                    required: "Les disponibilités sont obligatoires",
+                  })}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="lastName"
-                  type="text"
-                  placeholder="Votre nom"
-                />
+                  id="availability"
+                >
+                  <option value="">Sélectionnez vos disponibilités</option>
+                  <option value="weekdays">En semaine</option>
+                  <option value="weekends">Week-ends</option>
+                  <option value="evenings">Soirées</option>
+                  <option value="flexible">Flexible</option>
+                </select>
+                {errors.availability && (
+                  <p className="text-red-600 text-sm mt-1">
+                    Les disponibilités sont obligatoires
+                  </p>
+                )}
               </div>
-            </div>
 
-            {/* Adresse email  */}
-            <div>
-              <label className="block text-gray-700 text-sm font-bold mb-2">
-                Adresse email
-                <span className="text-red-600"> *</span>
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="adressEmail"
-                type="email"
-                placeholder="exemple@gmail.com"
-              />
-            </div>
-
-            {/* Ville et Code postal */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Votre motivation */}
               <div>
                 <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Ville
+                  Votre motivation
                   <span className="text-red-600"> *</span>
                 </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="city"
-                  type="text"
-                  placeholder="Votre ville"
+                <textarea
+                  {...register("motivation", {
+                    required: "La motivation est obligatoire",
+                  })}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none"
+                  id="motivation"
+                  rows={6}
+                  placeholder="Parlez-nous de votre motivation à devenir bénévole chez Adaopte"
                 />
+                {errors.motivation && (
+                  <p className="text-red-600 text-sm mt-1">
+                    La motivation est obligatoire
+                  </p>
+                )}
               </div>
 
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Code postal
-                  <span className="text-red-600"> *</span>
-                </label>
+              <div className="flex justify-center">
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="postalCode"
-                  type="text"
-                  placeholder="Code postal"
+                  type="submit"
+                  value="Envoyer ma candidature"
+                  className="btn-tertiary bg-[#04A552] text-white cursor-pointer px-6 py-3 rounded-full hover:bg-[#0a994f] transition-colors duration-200"
                 />
               </div>
-            </div>
-
-            {/* Disponibilités ) */}
-            <div>
-              <label className="block text-gray-700 text-sm font-bold mb-2">
-                Disponibilités
-                <span className="text-red-600"> *</span>
-              </label>
-              <select
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="availability"
-              >
-                <option value="">Sélectionnez vos disponibilités</option>
-                <option value="weekdays">En semaine</option>
-                <option value="weekends">Week-ends</option>
-                <option value="evenings">Soirées</option>
-                <option value="flexible">Flexible</option>
-              </select>
-            </div>
-
-            {/* Votre motivation */}
-            <div>
-              <label className="block text-gray-700 text-sm font-bold mb-2">
-                Votre motivation
-                <span className="text-red-600"> *</span>
-              </label>
-              <textarea
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none"
-                id="motivation"
-                rows={6}
-                placeholder="Parlez-nous de votre motivation à devenir bénévole chez Adaopte"
-              />
-            </div>
-
-            <div className="flex justify-center">
-              <input
-                type="submit"
-                value="Envoyer ma candidature"
-                className="btn-tertiary bg-[#04A552] text-white cursor-pointer px-6 py-3 rounded-full hover:bg-[#0a994f] transition-colors duration-200"
-              />
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </section>
 
