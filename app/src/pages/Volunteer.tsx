@@ -6,7 +6,6 @@ import { testimonies } from "../data/testimonies";
 export default function Volunteer() {
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm({});
 
@@ -43,9 +42,9 @@ export default function Volunteer() {
               prochaines étapes.
             </p>
             <form
-              onSubmit={handleSubmit((data: any) => {
-                alert(JSON.stringify(data));
-              })}
+              onSubmit={() =>
+                (window.location.href = "mailto:'team.adaopte@gmail.com'")
+              }
               className="space-y-6 mt-6"
             >
               {/* Prénom + Nom */}
