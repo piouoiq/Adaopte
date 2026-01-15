@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import { InfoCard } from "../components/infoCard";
+import { TestimonyCard } from "../components/testimonyCard";
+import { testimonies } from "../data/testimonies";
 
 export default function Volunteer() {
   const {
@@ -9,7 +11,7 @@ export default function Volunteer() {
   } = useForm({});
 
   return (
-    <div>
+    <main>
       <section className="relative overflow-hidden text-center text-primary-color py-40 bg-light-color">
         <div className="relative z-50 ">
           <h1 className="font-family-heading justify-center text-center pb-5 text-4xl font-bold">
@@ -22,6 +24,7 @@ export default function Volunteer() {
         </div>
         <img
           src="../public/images/alin-luna-8LfPXM6abRk-unsplash.jpg"
+          alt="Deux têtes de chiens derrière une grille."
           className=" w-full h-full object-cover object-center brightness-80  absolute top-0"
         ></img>
       </section>
@@ -166,20 +169,20 @@ export default function Volunteer() {
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Disponibilités
                   <span className="text-red-600"> *</span>
+                  <select
+                    {...register("availability", {
+                      required: "Les disponibilités sont obligatoires",
+                    })}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="availability"
+                  >
+                    <option value="">Sélectionnez vos disponibilités</option>
+                    <option value="weekdays">En semaine</option>
+                    <option value="weekends">Week-ends</option>
+                    <option value="evenings">Soirées</option>
+                    <option value="flexible">Flexible</option>
+                  </select>
                 </label>
-                <select
-                  {...register("availability", {
-                    required: "Les disponibilités sont obligatoires",
-                  })}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="availability"
-                >
-                  <option value="">Sélectionnez vos disponibilités</option>
-                  <option value="weekdays">En semaine</option>
-                  <option value="weekends">Week-ends</option>
-                  <option value="evenings">Soirées</option>
-                  <option value="flexible">Flexible</option>
-                </select>
                 {errors.availability && (
                   <p className="text-red-600 text-sm mt-1">
                     Les disponibilités sont obligatoires
@@ -213,7 +216,7 @@ export default function Volunteer() {
                 <input
                   type="submit"
                   value="Envoyer ma candidature"
-                  className="btn-tertiary bg-btn-tertiary-bg text-white cursor-pointer px-6 py-3 rounded-full hover:bg-btn-tertiary-hover-bg transition-colors duration-200"
+                  className="btn-tertiary bg-btn-tertiary-bg text-black cursor-pointer px-6 py-3 rounded-full hover:bg-btn-tertiary-hover-bg transition-colors duration-200"
                 />
               </div>
             </form>
@@ -257,7 +260,32 @@ export default function Volunteer() {
           />
         </div>
       </section>
-
+      <section className=" bg-light-color">
+        <div className="text-container mb-12 pt-12">
+          <h2 className="font-family-heading justify-center text-center pb-5 text-4xl font-bold">
+            Témoignages de bénévoles
+          </h2>
+          <p className="text-cta-bg ad-description font-family-body text-center mx-auto max-w-3xl px-4 text-sm leading-relaxed">
+            Découvrez ce que nos bénévoles partagent de leur expérience chez
+            Adaopte.
+          </p>
+        </div>
+        <div className=" px-4 max-w-7xl mx-auto">
+          <ul>
+            {testimonies.map((key) => (
+              <li key={key.testimony}>
+                <TestimonyCard
+                  picture={key.picture as unknown as HTMLImageElement}
+                  alt={key.alt}
+                  name={key.name}
+                  label={key.label}
+                  testimony={key.testimony}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
       <section className="cta-section bg-light-color pb-5">
         <h2 className="cta-title font-family-heading justify-center text-center pb-5 pt-5 text-4xl font-bold">
           Des questions ?{" "}
@@ -273,11 +301,11 @@ export default function Volunteer() {
           <button className="btn-primary bg-cta-button-bg text-white! cursor-pointer px-4! py-2! rounded-full! hover:bg-cta-button-hover-bg">
             Foire aux questions
           </button>
-          <button className="btn-secondary  bg-btn-secondary-bg text-white! cursor-pointer px-4! py-2! rounded-full! hover:bg-btn-hover-secondary-bg">
+          <button className="btn-secondary  bg-btn-secondary-bg text-black cursor-pointer px-4! py-2! rounded-full! hover:bg-btn-hover-secondary-bg">
             Contactez-nous
           </button>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
