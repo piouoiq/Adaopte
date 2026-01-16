@@ -301,7 +301,10 @@ export default function Volunteer() {
           <button className="btn-primary bg-cta-button-bg text-white! cursor-pointer px-4! py-2! rounded-full! hover:bg-cta-button-hover-bg">
             Foire aux questions
           </button>
-          <button className="btn-secondary  bg-btn-secondary-bg text-black cursor-pointer px-4! py-2! rounded-full! hover:bg-btn-hover-secondary-bg">
+          <button
+            onClick={() => (window.location.href = "mailto:contact@adaopte.fr")}
+            className="btn-secondary  bg-btn-secondary-bg text-black cursor-pointer px-4! py-2! rounded-full! hover:bg-btn-hover-secondary-bg"
+          >
             Contactez-nous
           </button>
         </div>
