@@ -1,13 +1,7 @@
 // src/components/Header.tsx
-import { LuHouse, LuBone, LuFish, LuSquirrel } from "react-icons/lu";
-import { NavLink } from "react-router";
 
-const link = [
-  { link: "/", label: "Accueil", icon: <LuHouse /> },
-  { link: "/Adoption", label: "J'adopte", icon: <LuBone /> },
-  { link: "/", label: "Guide de l'adoption", icon: <LuFish /> },
-  { link: "/Volunteer", label: "Devenir bénévole", icon: <LuSquirrel /> },
-];
+import { NavLink } from "react-router";
+import { link } from "./pageLinks";
 
 export default function Header() {
   return (
