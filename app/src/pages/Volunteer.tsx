@@ -23,7 +23,7 @@ export default function Volunteer() {
           </p>
         </div>
         <img
-          src="../public/images/alin-luna-8LfPXM6abRk-unsplash.jpg"
+          src="/images/alin-luna-8LfPXM6abRk-unsplash.jpg"
           alt="Deux têtes de chiens derrière une grille."
           className=" w-full h-full object-cover object-center brightness-80  absolute top-0"
         ></img>

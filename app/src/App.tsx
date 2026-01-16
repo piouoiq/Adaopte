@@ -19,7 +19,7 @@ export default function App() {
             </p>
           </div>
           <img
-            src="../public/images/background.jpg"
+            src="/images/background.jpg"
             alt="tête de chien de face, la gueule ouverte, fond flou"
             className=" w-full h-full object-cover object-center brightness-80  absolute top-0"
           ></img>
