@@ -147,8 +147,7 @@ type(scope): description
 
 Projet réalisé par des étudiants de [Ada Tech School](https://adatechschool.fr/) - Promotion Nantes 2025 - Mélissa Largilliere, Lucas Queveau et Chloé Verglas.
 
-<!-- Ajoutez vos profils GitHub ci-dessous -->
-<!--
+
 <table>
   <tr>
     <td align="center">
@@ -159,17 +158,17 @@ Projet réalisé par des étudiants de [Ada Tech School](https://adatechschool.f
         <td align="center">
       <a href="https://github.com/pepito11878">
         <br /><sub><b>Lucas Queveau</b></sub>
-
+      </a>
+    </td>
             <td align="center">
       <a href="https://github.com/freezer49">
         <br /><sub><b>Chloé Verglas</b></sub>
       </a>
     </td>
-      </a>
-    </td>
+
   </tr>
 </table>
--->
+
 
 ---
 
